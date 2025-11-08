@@ -25,12 +25,16 @@ export default function FleetCard({ vehicle, index, onViewDetails, language }) {
       transition={{ delay: index * 0.1, duration: 0.5 }}
       className="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300"
     >
-      {/* Image */}
+      {/* Image with lazy loading and optimization */}
       <div className="relative h-64 overflow-hidden">
         <img
           src={vehicle.image}
           alt={vehicle.name}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+          width="800"
+          height="600"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
         <div className="absolute bottom-4 left-4 right-4">

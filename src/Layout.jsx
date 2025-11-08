@@ -5,6 +5,7 @@ import { createPageUrl } from "@/utils";
 import { Bus, Phone, Mail, MapPin, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FaviconLinks from "@/components/FaviconLinks";
+import Sitemap from "@/components/Sitemap";
 
 export default function Layout({ children, currentPageName }) {
   const location = useLocation();
@@ -78,6 +79,7 @@ export default function Layout({ children, currentPageName }) {
   return (
     <div className="min-h-screen bg-[#FAFAF9] flex flex-col">
       <FaviconLinks />
+      <Sitemap />
       {/* Header */}
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
@@ -88,13 +90,16 @@ export default function Layout({ children, currentPageName }) {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            {/* Logo */}
+            {/* Logo - optimized image */}
             <Link to={createPageUrl("Home")} className="flex items-center gap-3 group">
               <div className="w-11 h-11 rounded-xl flex items-center justify-center transform group-hover:scale-105 transition-transform overflow-hidden">
                 <img 
                   src="https://ik.imagekit.io/by733ltn6/FAVICONS/favicon_io%20(14)/android-chrome-512x512.png?updatedAt=1762608068655"
                   alt="RentBus Brussels Logo"
+                  loading="eager"
                   className="w-full h-full object-cover"
+                  width="44"
+                  height="44"
                 />
               </div>
               <div>
@@ -192,7 +197,10 @@ export default function Layout({ children, currentPageName }) {
                   <img 
                     src="https://ik.imagekit.io/by733ltn6/FAVICONS/favicon_io%20(14)/android-chrome-512x512.png?updatedAt=1762608068655"
                     alt="RentBus Brussels Logo"
+                    loading="lazy"
                     className="w-full h-full object-cover"
+                    width="40"
+                    height="40"
                   />
                 </div>
                 <div>

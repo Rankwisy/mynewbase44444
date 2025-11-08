@@ -309,12 +309,16 @@ export default function Home() {
       <SEO language={language} page="home" />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image with optimization */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069"
+            src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069&auto=format"
             alt="Brussels cityscape"
+            loading="eager"
+            fetchpriority="high"
             className="w-full h-full object-cover"
+            width="2069"
+            height="1380"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 to-gray-900/60" />
         </div>
@@ -403,9 +407,13 @@ export default function Home() {
               className="relative"
             >
               <img
-                src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2070"
+                src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2070&auto=format"
                 alt="Luxury bus interior"
+                loading="lazy"
+                decoding="async"
                 className="rounded-2xl shadow-2xl"
+                width="2070"
+                height="1380"
               />
               <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-blue-600 rounded-2xl -z-10" />
             </motion.div>
@@ -470,9 +478,13 @@ export default function Home() {
               className="relative h-64 rounded-xl overflow-hidden group"
             >
               <img
-                src="https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=2070"
+                src="https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=2070&auto=format"
                 alt="Minibus"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                width="800"
+                height="600"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -491,9 +503,13 @@ export default function Home() {
               className="relative h-64 rounded-xl overflow-hidden group"
             >
               <img
-                src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069"
+                src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069&auto=format"
                 alt="Coach"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                width="800"
+                height="600"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -512,9 +528,13 @@ export default function Home() {
               className="relative h-64 rounded-xl overflow-hidden group"
             >
               <img
-                src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2070"
+                src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2070&auto=format"
                 alt="Luxury Coach"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                width="800"
+                height="600"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-white">

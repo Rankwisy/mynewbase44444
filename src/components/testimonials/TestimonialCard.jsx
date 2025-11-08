@@ -31,13 +31,17 @@ export default function TestimonialCard({ testimonial, index = 0, language = "en
         <Quote className="w-12 h-12" />
       </div>
 
-      {/* Customer Photo or Avatar */}
+      {/* Customer Photo or Avatar with lazy loading */}
       <div className="flex items-start gap-4 mb-6">
         {testimonial.customer_photo_url ? (
           <img
             src={testimonial.customer_photo_url}
             alt={testimonial.customer_name}
+            loading="lazy"
+            decoding="async"
             className="w-14 h-14 rounded-full object-cover"
+            width="56"
+            height="56"
           />
         ) : (
           <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-lg">

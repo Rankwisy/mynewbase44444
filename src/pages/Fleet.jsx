@@ -37,8 +37,57 @@ export default function Fleet() {
       setLanguage(e.detail);
     };
     window.addEventListener("languageChange", handleLanguageChange);
-    return () => window.removeEventListener("languageChange", handleLanguageChange);
-  }, []);
+
+    // Add Vehicle and RentalService schema to page
+    const baseUrl = window.location.origin;
+    
+    // Note: The 'language' variable in the schema will reflect the state at the time this useEffect first runs,
+    // which is upon component mount and initial language load. It will not dynamically update if the language
+    // is changed later via the languageChange event, as this effect has an empty dependency array [].
+    const rentalServiceSchema = {
+      "@context": "https://schema.org",
+      "@type": "RentalCarService",
+      "name": "RentBus Brussels Vehicle Rental",
+      "description": language === "en" 
+        ? "Professional bus and coach rental service with a modern fleet of vehicles ranging from 9 to 60 passengers"
+        : "Service professionnel de location de bus et autocars avec une flotte moderne de véhicules de 9 à 60 passagers",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "RentBus Brussels",
+        "url": baseUrl
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Brussels"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      }
+    };
+
+    let script = document.getElementById("schema-rental-service");
+    if (!script) {
+      script = document.createElement("script");
+      script.id = "schema-rental-service";
+      script.type = "application/ld+json";
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(rentalServiceSchema);
+
+    return () => {
+      window.removeEventListener("languageChange", handleLanguageChange);
+      // Optionally, remove the schema script on unmount if it's dynamic,
+      // but typically, static page schemas are left in the head.
+      // For this implementation, the script remains if it was added.
+    };
+  }, [language]); // Added language to dependency array to ensure schema updates if language state changes,
+  // but be aware that the initial setLanguage within this effect might cause a re-run.
+  // A better approach for schema dynamic updates would be a separate useEffect hook for schema with [language] dependency.
+  // However, following the outline for placing the code within this single useEffect, we make it react to language changes.
+  // To avoid potential infinite loops if language changes frequently, consider splitting the concerns into two effects.
+  // For the purpose of this exact change, we're making the schema dynamic.
 
   const content = {
     en: {
@@ -162,7 +211,7 @@ export default function Fleet() {
           specifications: {
             passengers: "20-30 (extra legroom configuration)",
             luggage: "Dedicated VIP luggage compartments",
-            features: ["Executive leather seats with extra legroom", "Conference tables", "Refreshment bar", "Premium entertainment system", "Mood lighting", "Privacy curtains", "Premium sound insulation", "Onboard Wi-Fi", "Multiple charging options"],
+            features: ["Executive leather seats with extra legroom", "Conference tables", "Refreshment bar", "Premium entertainment system", "Mood lighting", "Privacy curtains", "Insonorisation premium", "Onboard Wi-Fi", "Multiple charging options"],
             idealFor: ["Executive transport", "Celebrity tours", "Luxury weddings", "Premium corporate events", "VIP airport transfers", "High-profile occasions"]
           },
           pricing: "Premium rates - contact for quote"
@@ -321,7 +370,7 @@ export default function Fleet() {
             passengers: "20-30 (configuration espace supplémentaire)",
             luggage: "Compartiments bagages VIP dédiés",
             features: ["Sièges cuir exécutif avec espace jambes supplémentaire", "Tables de conférence", "Bar à rafraîchissements", "Système de divertissement premium", "Éclairage d'ambiance", "Rideaux d'intimité", "Insonorisation premium", "Wi-Fi à bord", "Multiples options de chargement"],
-            idealFor: ["Transport exécutif", "Tournées de célébrités", "Mariages de luxe", "Événements d'entreprise premium", "Transferts aéroport VIP", "Occasions prestigieuses"]
+            idealFor: ["Transport exécutif", "Tournées de célébrités", "Mariages de luxe", "Événements d'entreprise premium", "VIP airport transfers", "Occasions prestigieuses"]
           },
           pricing: "Tarifs premium - contactez-nous"
         }
