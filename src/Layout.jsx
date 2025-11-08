@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -87,8 +86,12 @@ export default function Layout({ children, currentPageName }) {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to={createPageUrl("Home")} className="flex items-center gap-3 group">
-              <div className="w-11 h-11 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center transform group-hover:scale-105 transition-transform">
-                <Bus className="w-6 h-6 text-white" />
+              <div className="w-11 h-11 rounded-xl flex items-center justify-center transform group-hover:scale-105 transition-transform overflow-hidden">
+                <img 
+                  src="https://ik.imagekit.io/by733ltn6/FAVICONS/favicon_io%20(14)/android-chrome-512x512.png?updatedAt=1762608068655"
+                  alt="RentBus Brussels Logo"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-900">RentBus</h1>
@@ -181,8 +184,12 @@ export default function Layout({ children, currentPageName }) {
             {/* Brand */}
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <Bus className="w-5 h-5 text-white" />
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden">
+                  <img 
+                    src="https://ik.imagekit.io/by733ltn6/FAVICONS/favicon_io%20(14)/android-chrome-512x512.png?updatedAt=1762608068655"
+                    alt="RentBus Brussels Logo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold">RentBus Brussels</h3>
