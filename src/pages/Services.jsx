@@ -17,6 +17,7 @@ import {
   Star
 } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "../components/SEO";
 
 export default function Services() {
   const [language, setLanguage] = useState("en");
@@ -179,7 +180,7 @@ export default function Services() {
         {
           icon: Calendar,
           title: "Événements & transport de groupe",
-          description: "Mariages, conférences, concerts : nous coordonnons la logistique pour que votre groupe arrive ensemble et à l'heure.",
+          description: "Mariages, conférences, concerts : nous coordonons la logistique pour que votre groupe arrive ensemble et à l'heure.",
           features: [
             "Horaires de prise en charge personnalisés",
             "Coordination de plusieurs véhicules",
@@ -287,6 +288,7 @@ export default function Services() {
 
   return (
     <div className="min-h-screen">
+      <SEO language={language} page="services" />
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-blue-600 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

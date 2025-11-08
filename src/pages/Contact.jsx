@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Mail, Phone, Clock, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import SEO from "../components/SEO";
 
 export default function Contact() {
   const [language, setLanguage] = useState("en");
@@ -127,6 +128,7 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen">
+      <SEO language={language} page="contact" />
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-blue-600 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

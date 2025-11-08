@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -22,6 +23,7 @@ import {
 } from "lucide-react";
 import FleetCard from "../components/fleet/FleetCard";
 import FleetModal from "../components/fleet/FleetModal";
+import SEO from "../components/SEO";
 
 export default function Fleet() {
   const [language, setLanguage] = useState("en");
@@ -361,6 +363,7 @@ export default function Fleet() {
 
   return (
     <div className="min-h-screen">
+      <SEO language={language} page="fleet" />
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-blue-600 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

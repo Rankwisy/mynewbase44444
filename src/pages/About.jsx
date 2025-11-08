@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Award, Heart, Users, Target, Shield, Clock } from "lucide-react";
+import SEO from "../components/SEO";
 
 export default function About() {
   const [language, setLanguage] = useState("en");
@@ -136,6 +137,7 @@ export default function About() {
 
   return (
     <div className="min-h-screen">
+      <SEO language={language} page="about" />
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-blue-600 to-blue-700 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

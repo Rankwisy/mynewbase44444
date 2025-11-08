@@ -19,6 +19,7 @@ import {
   ChevronDown
 } from "lucide-react";
 import { motion } from "framer-motion";
+import SEO from "../components/SEO";
 
 export default function Home() {
   const [language, setLanguage] = useState("en");
@@ -304,6 +305,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      <SEO language={language} page="home" />
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
