@@ -1,9 +1,21 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Award, Heart, Users, Target, Shield, Clock } from "lucide-react";
 
 export default function About() {
-  const [language] = useState("en");
+  const [language, setLanguage] = useState("en");
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") || "en";
+    setLanguage(savedLanguage);
+
+    const handleLanguageChange = (e) => {
+      setLanguage(e.detail);
+    };
+    window.addEventListener("languageChange", handleLanguageChange);
+    return () => window.removeEventListener("languageChange", handleLanguageChange);
+  }, []);
 
   const content = {
     en: {

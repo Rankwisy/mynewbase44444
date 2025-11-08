@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
@@ -20,8 +21,21 @@ import {
 import { motion } from "framer-motion";
 
 export default function Home() {
-  const [language] = useState("en");
+  const [language, setLanguage] = useState("en");
   const [openFaq, setOpenFaq] = useState(null);
+
+  useEffect(() => {
+    // Load language from localStorage
+    const savedLanguage = localStorage.getItem("language") || "en";
+    setLanguage(savedLanguage);
+
+    // Listen for language changes
+    const handleLanguageChange = (e) => {
+      setLanguage(e.detail);
+    };
+    window.addEventListener("languageChange", handleLanguageChange);
+    return () => window.removeEventListener("languageChange", handleLanguageChange);
+  }, []);
 
   const content = {
     en: {
@@ -317,15 +331,15 @@ export default function Home() {
           >
             <div className="flex items-center gap-2">
               <Clock className="w-5 h-5" />
-              <span className="text-sm">Since 2011</span>
+              <span className="text-sm">{language === "en" ? "Since 2011" : "Depuis 2011"}</span>
             </div>
             <div className="flex items-center gap-2">
               <Shield className="w-5 h-5" />
-              <span className="text-sm">Licensed & Insured</span>
+              <span className="text-sm">{language === "en" ? "Licensed & Insured" : "Licencié & Assuré"}</span>
             </div>
             <div className="flex items-center gap-2">
               <Users className="w-5 h-5" />
-              <span className="text-sm">Multilingual Service</span>
+              <span className="text-sm">{language === "en" ? "Multilingual Service" : "Service Multilingue"}</span>
             </div>
           </motion.div>
         </div>

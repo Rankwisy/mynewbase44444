@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,7 +9,7 @@ import { motion } from "framer-motion";
 import { toast } from "sonner";
 
 export default function Contact() {
-  const [language] = useState("en");
+  const [language, setLanguage] = useState("en");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -20,6 +21,17 @@ export default function Contact() {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  useEffect(() => {
+    const savedLanguage = localStorage.getItem("language") || "en";
+    setLanguage(savedLanguage);
+
+    const handleLanguageChange = (e) => {
+      setLanguage(e.detail);
+    };
+    window.addEventListener("languageChange", handleLanguageChange);
+    return () => window.removeEventListener("languageChange", handleLanguageChange);
+  }, []);
 
   const content = {
     en: {

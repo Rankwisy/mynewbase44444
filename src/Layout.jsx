@@ -11,12 +11,23 @@ export default function Layout({ children, currentPageName }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    // Load language from localStorage on mount
+    const savedLanguage = localStorage.getItem("language") || "en";
+    setLanguage(savedLanguage);
+    
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLanguageChange = (newLang) => {
+    setLanguage(newLang);
+    localStorage.setItem("language", newLang);
+    // Trigger a custom event to notify other components
+    window.dispatchEvent(new CustomEvent("languageChange", { detail: newLang }));
+  };
 
   const translations = {
     en: {
@@ -97,7 +108,7 @@ export default function Layout({ children, currentPageName }) {
               
               {/* Language Toggle */}
               <button
-                onClick={() => setLanguage(language === "en" ? "fr" : "en")}
+                onClick={() => handleLanguageChange(language === "en" ? "fr" : "en")}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-gray-200 hover:border-blue-600 hover:text-blue-600 transition-colors text-sm"
               >
                 <Globe className="w-4 h-4" />
@@ -139,7 +150,7 @@ export default function Layout({ children, currentPageName }) {
               ))}
               <button
                 onClick={() => {
-                  setLanguage(language === "en" ? "fr" : "en");
+                  handleLanguageChange(language === "en" ? "fr" : "en");
                   setMobileMenuOpen(false);
                 }}
                 className="flex items-center gap-2 py-2 text-gray-700 hover:text-blue-600"
