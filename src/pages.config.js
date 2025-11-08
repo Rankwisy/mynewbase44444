@@ -3,6 +3,7 @@ import Services from './pages/Services';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Fleet from './pages/Fleet';
+import Testimonials from './pages/Testimonials';
 import Layout from './Layout.jsx';
 
 
@@ -12,6 +13,7 @@ export const PAGES = {
     "About": About,
     "Contact": Contact,
     "Fleet": Fleet,
+    "Testimonials": Testimonials,
 }
 
 export const pagesConfig = {

@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -31,6 +32,11 @@ export default function SEO({ language, page = "home" }) {
           description: "Learn about RentBus Brussels - your trusted bus rental partner since 2011. Licensed drivers, modern fleet, 10,000+ satisfied customers. Safety first, punctual service, transparent pricing.",
           keywords: "bus rental company Brussels, licensed bus operators Belgium, professional coach hire, Brussels transport company"
         },
+        testimonials: {
+          title: "Customer Reviews & Testimonials | RentBus Brussels",
+          description: "Read authentic reviews from satisfied customers. 4.9-star average rating. See what people say about our bus rental service in Brussels. Verified customer testimonials.",
+          keywords: "bus rental reviews Brussels, customer testimonials, RentBus Brussels reviews, coach hire feedback, verified reviews"
+        },
         contact: {
           title: "Contact & Get Free Quote | Bus Rental Brussels",
           description: "Request a free quote for bus rental in Brussels. Contact us via form or email info@rentbus.brussels. 24-hour response time. Avenue de la Couronne, 1050 Brussels.",
@@ -57,6 +63,11 @@ export default function SEO({ language, page = "home" }) {
           title: "À Propos | Location Bus Professionnelle Bruxelles Depuis 2011",
           description: "Découvrez RentBus Brussels - votre partenaire de confiance depuis 2011. Chauffeurs licenciés, flotte moderne, 10 000+ clients satisfaits. Sécurité, ponctualité, transparence.",
           keywords: "société location bus Bruxelles, opérateur bus agréé Belgique, location autocar professionnel, entreprise transport Bruxelles"
+        },
+        testimonials: {
+          title: "Avis Clients & Témoignages | RentBus Brussels",
+          description: "Lisez les avis authentiques de clients satisfaits. Note moyenne de 4,9 étoiles. Découvrez ce que les gens disent de notre service de location de bus à Bruxelles.",
+          keywords: "avis location bus Bruxelles, témoignages clients, avis RentBus Brussels, retours location autocar, avis vérifiés"
         },
         contact: {
           title: "Contact & Devis Gratuit | Location Bus Bruxelles",

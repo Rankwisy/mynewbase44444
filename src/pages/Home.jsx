@@ -20,6 +20,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
+import TestimonialSection from "../components/testimonials/TestimonialSection";
 
 export default function Home() {
   const [language, setLanguage] = useState("en");
@@ -605,6 +606,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section - NEW */}
+      <TestimonialSection language={language} />
 
       {/* FAQ Section */}
       <section className="py-20 bg-white">

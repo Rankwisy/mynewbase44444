@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
@@ -36,6 +37,7 @@ export default function Layout({ children, currentPageName }) {
       services: "Services",
       fleet: "Fleet",
       about: "About",
+      testimonials: "Reviews",
       contact: "Contact",
       getQuote: "Get a Quote",
       footer: {
@@ -50,6 +52,7 @@ export default function Layout({ children, currentPageName }) {
       services: "Services",
       fleet: "Flotte",
       about: "À Propos",
+      testimonials: "Avis",
       contact: "Contact",
       getQuote: "Obtenir un Devis",
       footer: {
@@ -68,6 +71,7 @@ export default function Layout({ children, currentPageName }) {
     { name: t.services, path: createPageUrl("Services") },
     { name: t.fleet, path: createPageUrl("Fleet") },
     { name: t.about, path: createPageUrl("About") },
+    { name: t.testimonials, path: createPageUrl("Testimonials") },
     { name: t.contact, path: createPageUrl("Contact") }
   ];
 
