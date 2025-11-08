@@ -1,8 +1,10 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Bus, Phone, Mail, MapPin, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import FaviconLinks from "@/components/FaviconLinks";
 
 export default function Layout({ children, currentPageName }) {
   const location = useLocation();
@@ -69,6 +71,7 @@ export default function Layout({ children, currentPageName }) {
 
   return (
     <div className="min-h-screen bg-[#FAFAF9] flex flex-col">
+      <FaviconLinks />
       {/* Header */}
       <header
         className={`fixed top-0 w-full z-50 transition-all duration-300 ${
