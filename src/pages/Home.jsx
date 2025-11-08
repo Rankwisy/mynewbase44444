@@ -85,6 +85,17 @@ export default function Home() {
           }
         ]
       },
+      fleetPreview: {
+        title: "Explore Our Fleet",
+        description: "From luxury minibuses to full-size coaches — modern vehicles for every group size",
+        minibusTitle: "Luxury Minibus",
+        minibusCapacity: "9-16 passengers",
+        midiCoachTitle: "Midi Coach",
+        midiCoachCapacity: "17-35 passengers",
+        luxuryCoachTitle: "Luxury Coach",
+        luxuryCoachCapacity: "36-60 passengers",
+        button: "View Full Fleet"
+      },
       howItWorks: {
         title: "How it works",
         steps: [
@@ -203,6 +214,17 @@ export default function Home() {
             description: "Véhicules contrôlés et chauffeurs expérimentés pour sorties scolaires et groupes."
           }
         ]
+      },
+      fleetPreview: {
+        title: "Découvrez Notre Flotte",
+        description: "Des minibus de luxe aux autocars grand format — véhicules modernes pour tous les groupes",
+        minibusTitle: "Minibus de Luxe",
+        minibusCapacity: "9-16 passagers",
+        midiCoachTitle: "Autocar Moyen",
+        midiCoachCapacity: "17-35 passagers",
+        luxuryCoachTitle: "Autocar de Luxe",
+        luxuryCoachCapacity: "36-60 passagers",
+        button: "Voir Toute la Flotte"
       },
       howItWorks: {
         title: "Mode d'emploi",
@@ -421,6 +443,93 @@ export default function Home() {
                 </motion.div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Fleet Preview Section - NEW */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              {t.fleetPreview.title}
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+              {t.fleetPreview.description}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="relative h-64 rounded-xl overflow-hidden group"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=2070"
+                alt="Minibus"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <h3 className="text-xl font-bold mb-1">
+                  {t.fleetPreview.minibusTitle}
+                </h3>
+                <p className="text-sm text-white/90">{t.fleetPreview.minibusCapacity}</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="relative h-64 rounded-xl overflow-hidden group"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069"
+                alt="Coach"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <h3 className="text-xl font-bold mb-1">
+                  {t.fleetPreview.midiCoachTitle}
+                </h3>
+                <p className="text-sm text-white/90">{t.fleetPreview.midiCoachCapacity}</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="relative h-64 rounded-xl overflow-hidden group"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2070"
+                alt="Luxury Coach"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <h3 className="text-xl font-bold mb-1">
+                  {t.fleetPreview.luxuryCoachTitle}
+                </h3>
+                <p className="text-sm text-white/90">{t.fleetPreview.luxuryCoachCapacity}</p>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="text-center">
+            <Link to={createPageUrl("Fleet")}>
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700">
+                {t.fleetPreview.button}
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

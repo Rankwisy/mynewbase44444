@@ -35,6 +35,7 @@ export default function Layout({ children, currentPageName }) {
     en: {
       home: "Home",
       services: "Services",
+      fleet: "Fleet",
       about: "About",
       contact: "Contact",
       getQuote: "Get a Quote",
@@ -48,6 +49,7 @@ export default function Layout({ children, currentPageName }) {
     fr: {
       home: "Accueil",
       services: "Services",
+      fleet: "Flotte",
       about: "À Propos",
       contact: "Contact",
       getQuote: "Obtenir un Devis",
@@ -65,6 +67,7 @@ export default function Layout({ children, currentPageName }) {
   const navigation = [
     { name: t.home, path: createPageUrl("Home") },
     { name: t.services, path: createPageUrl("Services") },
+    { name: t.fleet, path: createPageUrl("Fleet") },
     { name: t.about, path: createPageUrl("About") },
     { name: t.contact, path: createPageUrl("Contact") }
   ];
