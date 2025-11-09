@@ -106,7 +106,7 @@ export default function Fleet() {
           capacity: "9-16 Passengers",
           image: "https://ik.imagekit.io/by733ltn6/c4c712bd-48a3-45b0-a064-a21f222a4650.png?updatedAt=1753097472481",
           images: [
-            "https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=2070",
+            "https://ik.imagekit.io/by733ltn6/c4c712bd-48a3-45b0-a064-a21f222a4650.png?updatedAt=1753097472481",
             "https://ik.imagekit.io/by733ltn6/bus-blanche.png?updatedAt=1752974075819",
             "https://ik.imagekit.io/by733ltn6/Mercedes-Benz-Sprinter-517-Estonia_20042_5875811637.jpg?updatedAt=1753120867581"
           ],
