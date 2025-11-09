@@ -406,15 +406,15 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <img
-                src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2070&auto=format"
-                alt="Luxury bus interior"
-                loading="lazy"
-                decoding="async"
-                className="rounded-2xl shadow-2xl"
-                width="2070"
-                height="1380"
-              />
+             <img
+  src="https://ik.imagekit.io/by733ltn6/smart-casual-young-businessman-walking-towards-public-transportation-bus-station.jpg"
+  alt="Luxury bus interior"
+  loading="lazy"
+  decoding="async"
+  className="rounded-2xl shadow-2xl"
+  width="2070"
+  height="1380"
+/>
               <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-blue-600 rounded-2xl -z-10" />
             </motion.div>
           </div>
