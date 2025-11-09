@@ -478,7 +478,7 @@ export default function Home() {
               className="relative h-64 rounded-xl overflow-hidden group"
             >
               <img
-                src="https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=2070&auto=format"
+                src="https://ik.imagekit.io/by733ltn6/c4c712bd-48a3-45b0-a064-a21f222a4650.png?updatedAt=1753097472481"
                 alt="Minibus"
                 loading="lazy"
                 decoding="async"
