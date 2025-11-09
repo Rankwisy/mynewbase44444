@@ -528,7 +528,7 @@ export default function Home() {
               className="relative h-64 rounded-xl overflow-hidden group"
             >
               <img
-                src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2070&auto=format"
+                src="https://ik.imagekit.io/by733ltn6/Mercedes-Benz-Sprinter-517-Estonia_20042_5875811637.jpg?updatedAt=1753120867581"
                 alt="Luxury Coach"
                 loading="lazy"
                 decoding="async"
