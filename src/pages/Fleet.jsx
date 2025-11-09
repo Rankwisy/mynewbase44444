@@ -104,11 +104,11 @@ export default function Fleet() {
           id: "minibus",
           name: "Luxury Minibus",
           capacity: "9-16 Passengers",
-          image: "https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=2070",
+          image: "https://ik.imagekit.io/by733ltn6/c4c712bd-48a3-45b0-a064-a21f222a4650.png?updatedAt=1753097472481",
           images: [
             "https://images.unsplash.com/photo-1464219789935-c2d9d9aba644?q=80&w=2070",
-            "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069",
-            "https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=2070"
+            "https://ik.imagekit.io/by733ltn6/bus-blanche.png?updatedAt=1752974075819",
+            "https://ik.imagekit.io/by733ltn6/Mercedes-Benz-Sprinter-517-Estonia_20042_5875811637.jpg?updatedAt=1753120867581"
           ],
           videoUrl: null,
           shortDescription: "Perfect for small groups, airport transfers, and city tours",
