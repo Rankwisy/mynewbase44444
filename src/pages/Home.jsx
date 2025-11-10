@@ -312,7 +312,7 @@ export default function Home() {
         {/* Background Image with optimization */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069&auto=format"
+            src="https://ik.imagekit.io/by733ltn6/hero%20image%20rent%20a%20bus%20brusseles.png"
             alt="Brussels cityscape"
             loading="eager"
             fetchpriority="high"
