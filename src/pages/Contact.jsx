@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MapPin, Mail, Phone, Clock, Send } from "lucide-react";
+import { MapPin, Mail, Phone, Clock, Send, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import SEO from "../components/SEO";
+import { SendEmail } from "../api/integrations";
 
 export default function Contact() {
   const [language, setLanguage] = useState("en");
@@ -22,6 +23,7 @@ export default function Contact() {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const savedLanguage = localStorage.getItem("language") || "en";
@@ -105,9 +107,25 @@ export default function Contact() {
 
     setIsSubmitting(true);
 
-    // Simulate sending - in production, integrate with your email service
-    setTimeout(() => {
-      toast.success(t.success);
+    try {
+      await SendEmail({
+        to: "info@rentbus.brussels",
+        subject: `Nouvelle demande de devis - ${formData.name}`,
+        body: `
+Nouvelle demande de devis reçue :
+
+Nom : ${formData.name}
+Email : ${formData.email}
+Téléphone : ${formData.phone}
+Date du voyage : ${formData.date}
+Nombre de passagers : ${formData.passengers}
+Lieu de prise en charge : ${formData.pickup || "Non précisé"}
+Lieu de dépose : ${formData.dropoff || "Non précisé"}
+Message : ${formData.message || "Aucun"}
+        `.trim()
+      });
+
+      setSubmitted(true);
       setFormData({
         name: "",
         email: "",
@@ -118,8 +136,11 @@ export default function Contact() {
         dropoff: "",
         message: ""
       });
+    } catch (error) {
+      toast.error(language === "fr" ? "Erreur lors de l'envoi. Veuillez réessayer." : "Failed to send. Please try again.");
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   const handleChange = (field, value) => {
@@ -150,6 +171,36 @@ export default function Contact() {
       {/* Contact Form & Info */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Thank You Page */}
+          {submitted && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="max-w-2xl mx-auto bg-white rounded-2xl shadow-xl p-12 text-center"
+            >
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-10 h-10 text-green-600" />
+              </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                {language === "fr" ? "Merci pour votre demande !" : "Thank you for your request!"}
+              </h2>
+              <p className="text-lg text-gray-600 mb-8">
+                {language === "fr"
+                  ? "Votre demande de devis a été envoyée avec succès. Nous vous répondrons dans les 24 heures."
+                  : "Your quote request has been sent successfully. We'll get back to you within 24 hours."}
+              </p>
+              <Button
+                onClick={() => setSubmitted(false)}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3"
+              >
+                {language === "fr" ? "Envoyer une autre demande" : "Send another request"}
+              </Button>
+            </motion.div>
+          )}
+
+          {!submitted && (
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Form */}
             <div className="lg:col-span-2">
@@ -348,6 +399,7 @@ export default function Contact() {
               </motion.div>
             </div>
           </div>
+          )}
         </div>
       </section>
     </div>
