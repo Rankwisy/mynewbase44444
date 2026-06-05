@@ -8,7 +8,6 @@ import { MapPin, Mail, Phone, Clock, Send, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import SEO from "../components/SEO";
-import { SendEmail } from "../api/integrations";
 
 export default function Contact() {
   const [language, setLanguage] = useState("en");
@@ -108,22 +107,18 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      await SendEmail({
-        to: "info@rentbus.brussels",
-        subject: `Nouvelle demande de devis - ${formData.name}`,
-        body: `
-Nouvelle demande de devis reçue :
-
-Nom : ${formData.name}
-Email : ${formData.email}
-Téléphone : ${formData.phone}
-Date du voyage : ${formData.date}
-Nombre de passagers : ${formData.passengers}
-Lieu de prise en charge : ${formData.pickup || "Non précisé"}
-Lieu de dépose : ${formData.dropoff || "Non précisé"}
-Message : ${formData.message || "Aucun"}
-        `.trim()
+      const body = new URLSearchParams({
+        "form-name": "contact",
+        ...formData
       });
+
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString()
+      });
+
+      if (!response.ok) throw new Error("Submission failed");
 
       setSubmitted(true);
       setFormData({
@@ -211,7 +206,8 @@ Message : ${formData.message || "Aucun"}
                 transition={{ duration: 0.6 }}
                 className="bg-white rounded-2xl shadow-xl p-8"
               >
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form name="contact" onSubmit={handleSubmit} className="space-y-6">
+                  <input type="hidden" name="form-name" value="contact" />
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <Label htmlFor="name">{t.form.name} *</Label>
