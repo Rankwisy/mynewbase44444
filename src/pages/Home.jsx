@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
+import { createPageUrl, PHONE_NUMBER, PHONE_HREF } from "@/utils";
 import { Button } from "@/components/ui/button";
 import { 
   Bus, 
@@ -16,7 +16,8 @@ import {
   Building2,
   GraduationCap,
   MapPin,
-  ChevronDown
+  ChevronDown,
+  Phone
 } from "lucide-react";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
@@ -349,6 +350,13 @@ export default function Home() {
                 </Button>
               </Link>
             </div>
+            <a
+              href={PHONE_HREF}
+              className="mt-6 inline-flex items-center gap-2 text-xl md:text-2xl font-bold text-white hover:text-blue-400 transition-colors"
+            >
+              <Phone className="w-6 h-6" />
+              {PHONE_NUMBER}
+            </a>
           </motion.div>
 
           {/* Trust Badges */}

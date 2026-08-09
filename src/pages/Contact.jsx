@@ -8,6 +8,7 @@ import { MapPin, Mail, Phone, Clock, Send, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import SEO from "../components/SEO";
+import { PHONE_NUMBER, PHONE_HREF } from "@/utils";
 
 export default function Contact() {
   const [language, setLanguage] = useState("en");
@@ -345,6 +346,21 @@ export default function Contact() {
                     <div>
                       <p className="font-medium text-gray-900 mb-1">Address</p>
                       <p className="text-gray-600">{t.contact.address}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Phone className="w-5 h-5 text-blue-600" />
+                    </div>
+                    <div>
+                      <p className="font-medium text-gray-900 mb-1">{language === "fr" ? "Téléphone" : "Phone"}</p>
+                      <a
+                        href={PHONE_HREF}
+                        className="text-blue-600 hover:underline font-semibold"
+                      >
+                        {PHONE_NUMBER}
+                      </a>
                     </div>
                   </div>
 

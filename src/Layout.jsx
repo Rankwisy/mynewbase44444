@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { createPageUrl } from "@/utils";
+import { createPageUrl, PHONE_NUMBER, PHONE_HREF } from "@/utils";
 import { Bus, Phone, Mail, MapPin, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import FaviconLinks from "@/components/FaviconLinks";
@@ -123,7 +123,15 @@ export default function Layout({ children, currentPageName }) {
                   {item.name}
                 </Link>
               ))}
-              
+
+              <a
+                href={PHONE_HREF}
+                className="flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700"
+              >
+                <Phone className="w-4 h-4" />
+                {PHONE_NUMBER}
+              </a>
+
               {/* Language Toggle */}
               <button
                 onClick={() => handleLanguageChange(language === "en" ? "fr" : "en")}
@@ -166,6 +174,13 @@ export default function Layout({ children, currentPageName }) {
                   {item.name}
                 </Link>
               ))}
+              <a
+                href={PHONE_HREF}
+                className="flex items-center gap-2 py-2 font-semibold text-blue-600"
+              >
+                <Phone className="w-4 h-4" />
+                {PHONE_NUMBER}
+              </a>
               <button
                 onClick={() => {
                   handleLanguageChange(language === "en" ? "fr" : "en");
@@ -233,6 +248,12 @@ export default function Layout({ children, currentPageName }) {
                 <div className="flex items-start gap-2">
                   <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                   <span>Avenue de la Couronne, 1050 Brussels</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4 flex-shrink-0" />
+                  <a href={PHONE_HREF} className="hover:text-white transition-colors font-semibold">
+                    {PHONE_NUMBER}
+                  </a>
                 </div>
                 <div className="flex items-center gap-2">
                   <Mail className="w-4 h-4 flex-shrink-0" />
